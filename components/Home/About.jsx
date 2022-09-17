@@ -5,7 +5,7 @@ import { Container, HCenter, VCenter } from "../../styles/layout"
 const About = () => (
   <Wrapper id="about">
     <WidthContainer>
-      <Label>02 — За нас</Label>
+      <Label>За нас</Label>
       <Title>
         Lorem ipsum dolor sit, amet 
         consectetur adipisicing elit. 
@@ -79,7 +79,7 @@ const Label = styled.span`
   opacity: .68;
   font-weight: 500;
   display: block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 `
 
 const Title = styled.h2`

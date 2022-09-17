@@ -10,7 +10,7 @@ import WriteIcon from './images/write.svg'
 const Services = () => (
   <Wrapper id="services">
     <Body>
-      <Label>01 — Услуги</Label>
+      <Label>Услуги</Label>
       <Title>Нашите услуги</Title> 
       <ServiceItems>
         <Service>
@@ -106,7 +106,7 @@ const Label = styled.span`
   font-weight: 500;
   text-align: center;
   display: block;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 `
 
 const Wrapper = styled.section`
