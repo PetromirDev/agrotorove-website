@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { useCallback, useEffect, useState } from "react"
 import styled from "styled-components"
-import { Container, HCenter } from "../styles/layout"
+import { Container, HCenter, VCenter } from "../styles/layout"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -38,18 +38,22 @@ const Navbar = () => {
   }, [handleScroll])
 
   return (
-    <Wrapper isScrolling={isScrolling} isScrolledMax={isScrolledMax} id="navbar">
+    <Wrapper isOpen={isOpen} isScrolling={isScrolling} isScrolledMax={isScrolledMax} id="navbar">
       <WidthContainer>
         <TopBar>
-          <Logo>Агро Торове 77</Logo>
-          <Hamburger aria-label="navigation hamburger" onClick={handleNavigationToggle} isOpen={isOpen}>
-            <span></span>
-            <span></span>
-            <span></span>
+          <Logo isScrolledMax={isScrolledMax}>Агро Торове 77</Logo>
+          <Hamburger 
+            isScrolledMax={isScrolledMax} 
+            aria-label="navigation hamburger" 
+            onClick={handleNavigationToggle} 
+            isOpen={isOpen}
+          >
+            <div></div>
           </Hamburger>
         </TopBar>
         <Navigation isOpen={isOpen}>
-          <div>
+          <Logo isOpen={isOpen}>Агро Торове 77</Logo>
+          <MainNavigation>
             <Link href="#home">
               <NavLink>
                 Начало
@@ -70,7 +74,7 @@ const Navbar = () => {
                 Торове
               </NavLink>
             </Link> */}
-          </div>
+          </MainNavigation>
           
           <Link href="#contact">
             <Action isScrolling={isScrolling} isScrolledMax={isScrolledMax}>
@@ -85,6 +89,22 @@ const Navbar = () => {
 
 export default Navbar
 
+const MainNavigation = styled.div`
+  ${VCenter};
+  @media (max-width: 768px) {
+    gap: 2.5rem;
+    padding: 0 3.75rem;
+    width: 100%;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 0;
+    gap: 3.75rem;
+    margin: 0 auto;
+    flex-direction: row;
+  }
+`
+
 const TopBar = styled.div`
   ${HCenter};
   width: 100%;
@@ -96,49 +116,70 @@ const TopBar = styled.div`
 `
 
 const Hamburger = styled.button`
-  display: block;
   background-color: transparent;
   outline: none;
   border: none;
 
-  span {
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: opacity 0.25s linear;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  div {
     position: relative;
-    background: #ffffff;
-    border-radius: 3px;
-    z-index: 1;
-    transform-origin: 4px 0px;
-    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-                opacity 0.55s ease;
-    transform: ${props => props.isOpen ? 'rotate(45deg) translate(-2px, -1px)' : ''};
-    opacity: ${props => props.isOpen ? 0 : 1};
   }
 
-  span:first-child {
-    transform-origin: 0% 0%;
+  div,
+  div:after,
+  div:before {
+    background-color: ${props => !props.isScrolledMax ? '#000' : '#fafafa'};
+    border-radius: 10px;
+    width: 2.2rem;
+    height: .25rem;
+    transition: all 0.15s linear;
   }
 
-  span:nth-last-child(2) {
-    transform: ${props => props.isOpen ? 'rotate(-45deg) translate(0, -1px)' : ''};
-    transform-origin: 0% 100%;
+  div:before,
+  div:after {
+    content: "";
+    position: absolute;
+    left: 0;
   }
-  span:nth-last-child(3) {
-    opacity: ${props => props.isOpen ? 1 : 0};
-    transform: ${props => props.isOpen ? 'rotate(0deg) scale(0.2, 0.2)' : ''};
+
+  div:before {
+    transform: translateY(-220%);
   }
+
+  div:after {
+    transform: translateY(220%);
+  }
+
+  ${props => props.isOpen ? `
+    div {
+      background: transparent;
+    }
+
+    div:before {
+      transform: rotate(45deg);
+    }
+
+    div:after {
+      transform: rotate(-45deg);
+    }
+  ` : ''}
 
   @media (min-width: 768px) {
     display: none;
   }
-
 `
 
 const Wrapper = styled.div`
-  padding: 1.5625rem 0;
+  padding: 1.5625rem 1.25rem;
   position: fixed;
   z-index: 99;
   top: 0;
@@ -146,8 +187,12 @@ const Wrapper = styled.div`
   width: 100%;
   background-color: ${props => props.isScrolledMax ? 'transparent' : '#fff'};
   transition: transform .4s .1s ease-in-out, background-color .3s ease-in-out;
-  transform: ${props => props.isScrolling ? 'translateY(-100%)' : 'translateY(0)'};
-  color: ${props => props.isScrolledMax ? '#fff' : '#19352b'};
+  color: #000;
+  transform: ${props => (props.isScrolling && !props.isOpen) ? 'translateY(-100%)' : 'translateY(0)'};
+  @media (min-width: 768px) {
+    transform: ${props => props.isScrolling ? 'translateY(-100%)' : 'translateY(0)'};
+    color: ${props => props.isScrolledMax ? '#fff' : '#19352b'};
+  }
   ${props => !props.isScrolledMax ? 'box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.4)' : ''};
 `
 
@@ -160,31 +205,50 @@ const WidthContainer = styled.div`
 const Logo = styled.span`
   font-size: 1.625rem;
   font-weight: 800;
+  color: ${props => ((props.isScrolledMax === true) || (props.isOpen === false)) ? '#fff' : '#000'};
 `
 
 const Navigation = styled.nav`
-  ${HCenter};
+  ${VCenter};
   flex: 1;
-  display: none;
-
-  div {
-    ${HCenter};
-    gap: 3.75rem;
-    margin: 0 auto;
+  
+  ${Logo} {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    left: ${props => props.isOpen ? 0 : '-100%'};
+    transition: .3s ease-in-out left;
+    top: 0;
+    position: fixed;
+    z-index: 100;
+    background-color: #fff;
+    height: 100vh;
+    padding: 2.5rem;
+    justify-content: space-between;
   }
 
   @media (min-width: 768px) {
+    ${Logo} {
+      display: none;
+    }
+    flex-direction: row;
     display: flex;
   }
 `
 
 const NavLink = styled.a`
   opacity: .8;
-  transition: ${(props) => props.theme.globalTransition};
+  font-size: 1.3rem;
+  transition: .3s ease-in-out color;
   cursor: pointer;
   
   &:hover {
     opacity: 1;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
   }
 `
 
@@ -193,13 +257,28 @@ const Action = styled.a`
   font-weight: 500;
   opacity: 1;
   transition: ${props => props.theme.globalTransition};
-  padding: 12px 24px;
+  padding: .75rem 1.5rem;
 
-  ${props => !props.isScrolledMax ? `
-    border-radius: 5px;
-    background-color: ${props.theme.primary};
+  @media (max-width: 768px) {
+    text-align: center;
+    width: 100%;
     color: #fff;
-  ` : ''}
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 5px;
+    background-color: ${props => props.theme.primary};
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 1rem;
+    ${props => !props.isScrolledMax ? `
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      border-radius: 5px;
+      background-color: ${props.theme.primary};
+      color: #fff;
+    ` : ''}
+  }
+
 
   &:hover {
     opacity: .8;
