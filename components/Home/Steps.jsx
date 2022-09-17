@@ -43,7 +43,8 @@ const Steps = () => (
 export default Steps
 
 const Wrapper = styled.section`
-  padding: 5rem 0;
+  padding-top: 5rem;
+  padding-bottom: 7.5rem;
   background-color: ${props => props.theme.backgroundSecondary};
 `
 
