@@ -8,8 +8,8 @@ export default function Document() {
         <meta name="robots" content="index, follow" />
         <meta name="author" content="Petromir Petrov" />
         <link rel="icon"  href="favicon.ico"/>
-        <link href='https://css.gg/close.css' rel='stylesheet' />
-        <link href='https://css.gg/menu.css' rel='stylesheet' />
+        {/* <link href='https://css.gg/close.css' rel='stylesheet' />
+        <link href='https://css.gg/menu.css' rel='stylesheet' /> */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"/> 
