@@ -43,9 +43,9 @@ const Contact = styled.a`
 `
 
 const Text = styled.p` 
-  font-size: 1.3rem;
   font-weight: 300;
   margin-bottom: 2rem;
+  font-size: 1.2rem;
 
   @media (min-width: 1280px) {
     max-width: 43.75rem;
@@ -53,12 +53,12 @@ const Text = styled.p`
 `
 
 const Title = styled.h1`
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 2.5rem;
   
   @media (min-width: 768px) {
     margin-bottom: 3rem;
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   @media (min-width: 1280px) {
@@ -71,7 +71,9 @@ const Body = styled.div`
   ${Container};
   color: #fff;
   text-align: center;
+  max-width: 46.875rem;
   @media (min-width: 1280px) {
+    max-width: 80rem;
     text-align: left;
   }
 `
