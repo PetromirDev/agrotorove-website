@@ -136,10 +136,16 @@ const ContactForm = styled.form`
 `
 
 const TopFooter = styled.div`
-  ${HCenter};
+  ${VCenter};
+  gap: 20px;
   width: 100%;
   justify-content: space-between;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.875rem;
+
+  @media (min-width: 768px) {
+    margin-bottom: 2.5rem;
+    flex-direction: row;
+  }
 `
 
 const ContactLabel = styled.span`
@@ -151,11 +157,16 @@ const ContactLabel = styled.span`
 `
 
 const Title = styled.h3`
-  font-size: 2.25rem;
+  font-size: 1.8rem;
   font-weight: 600;
+  margin-bottom: 2.5rem;
   max-width: 31.25rem;
   text-align: center;
-  margin-bottom: 3.75rem;
+  
+  @media (min-width: 768px) {
+    margin-bottom: 3.75rem;
+    font-size: 2.25rem;
+  }
 `
 
 const Wrapper = styled.footer`
@@ -169,13 +180,22 @@ const Separator = styled.div`
   width: 100%;
   height: 3px;
   background-color: #1C1D23;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.875rem;
+
+  @media (min-width: 768px) {
+    margin-bottom: 1.25rem;
+  }
 `
 
 const BottomFooter = styled.div`
-  ${HCenter};
+  ${VCenter};
+  flex-direction: column-reverse;
+  gap: 20px;
   width: 100%;
   justify-content: space-between;
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `
 
 const ContactInformation = styled.div`
@@ -197,9 +217,13 @@ const ContactInformation = styled.div`
 
 const Copyright = styled.p`
   font-size: .9rem;
-  text-align: left;
   font-weight: 400;
+  text-align: center;
   color: rgba(255, 255, 255, .68);
+  
+  @media (min-width: 768px) {
+    text-align: left;
+  }
   
   a {
     transition: ${props => props.theme.globalTransition};
