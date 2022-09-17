@@ -88,10 +88,12 @@ const Service = styled.div`
   ${VCenter};
   justify-content: space-between;
   padding: 1.875rem;
+  padding-bottom: 2.5rem;
   background-color: #FAFAFA;
   border-radius: 8px;
   max-width: 21.875rem;
   text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
 `
 
 const ServiceItems = styled.div`
