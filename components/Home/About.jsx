@@ -86,7 +86,11 @@ const Title = styled.h2`
   max-width: 43.75rem;
   font-weight: 700;
   margin-bottom: 5rem;
-  font-size: 2.25rem;
+  font-size: 1.8rem;
+  
+  @media (min-width: 768px) {
+    font-size: 2.25rem;
+  }
 `
 
 const Wrapper = styled.section`
