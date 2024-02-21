@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <Wrapper>
       <WidthContainer>
-        <ContactLabel>Свържи се с нас</ContactLabel>
+        <ContactLabel>Свържете се с нас</ContactLabel>
         <Title>
           Стигнахте чак до тук.
           <br/>
@@ -39,21 +39,21 @@ const Footer = () => {
                 Услуги
               </NavLink>
             </Link>
-            <Link href="#fertilizers">
+            {/* <Link href="#fertilizers">
               <NavLink>
                 Торове
               </NavLink>
-            </Link>
+            </Link> */}
           </Navigation>
         </TopFooter>
         <Separator />
         <BottomFooter>
           <Copyright>
-              Copyright 2022 Агро Торове 77 ЕООД
+              Copyright 2024 Агро Торове 77 ЕООД
               {' '}
               |
               {' '}
-              <a target='_blank' rel="noreferrer" href="https://petromir.dev/bg">Website by petromir.dev</a>
+              <a target='_blank' rel="noreferrer" href="https://petromir.dev">Website by petromir.dev</a>
           </Copyright>
           <ContactInformation>
             <a href="tel:+359 887 697 749">

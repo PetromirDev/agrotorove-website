@@ -7,23 +7,21 @@ const About = () => (
     <WidthContainer>
       <Label>За нас</Label>
       <Title>
-        Lorem ipsum dolor sit, amet 
-        consectetur adipisicing elit. 
-        Id ducimus sit nihil.
+        Ние предлагаме сигурност и качество
       </Title>
       <Info>
         <Stats>
           <Stat>
-            <h3>20+</h3>
-            <p>Клиенти от различни части на България.</p>
+            <h3>17+</h3>
+            <p>Години опит в търговията с минерални торове.</p>
           </Stat>
           <Stat>
-            <h3>100 000+</h3>
+            <h3>250 000+</h3>
             <p>Продадени тона гранулирана и течна тор на нашите клиенти.</p>
           </Stat>
         </Stats>
         <AboutText>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias nobis qui vitae omnis natus, vero, error illum sequi corporis ipsum atque, alias eligendi ipsam eos debitis nulla minus quia possimus? Culpa modi ut autem eum in debitis eius esse illum assumenda id. Minus fuga accusamus neque quo vero, corrupti necessitatibus?
+        Работим с доказали се производители и вносители на торове. Можем да предложим пълната гама продукти за подхранване на почвата. При нас можете да намерите решение за листното хранене на растенията, подхранването с микроелементи, биостимулатори и аминокиселини. 
         </AboutText>
       </Info>
     </WidthContainer>

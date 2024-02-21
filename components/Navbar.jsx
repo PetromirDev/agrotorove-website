@@ -69,16 +69,11 @@ const Navbar = () => {
                 Услуги
               </NavLink>
             </Link>
-            {/* <Link href="#fertilizers">
-              <NavLink>
-                Торове
-              </NavLink>
-            </Link> */}
           </MainNavigation>
           
           <Link href="#contact">
             <Action isScrolling={isScrolling} isScrolledMax={isScrolledMax}>
-              Свържи се с нас ↗
+              Свържете се с нас ↗
             </Action>
           </Link>
         </Navigation>

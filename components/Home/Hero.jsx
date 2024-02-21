@@ -21,7 +21,7 @@ const Hero = () => (
       </Text>
       <Link href="#contact">
         <Contact>
-          Свържи се с нас
+          Свържете се с нас
         </Contact>
       </Link>
     </Body>
