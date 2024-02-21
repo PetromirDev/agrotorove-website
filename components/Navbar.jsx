@@ -189,6 +189,10 @@ const Wrapper = styled.div`
     color: ${props => props.isScrolledMax ? '#fff' : '#19352b'};
   }
   ${props => !props.isScrolledMax ? 'box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.4)' : ''};
+
+  @media (max-width: 768px) {
+    padding: 1.5625rem 0;
+  }
 `
 
 const WidthContainer = styled.div`
