@@ -15,11 +15,11 @@ const Footer = () => {
           <br/>
           Защо не се свържете с нас?
         </Title>
-        <ContactForm action="https://formsubmit.co/00fe8c2a73af1d4206a2f1e74f4fb88c" method="POST">
+        <ContactForm action="https://formsubmit.co/00fe8c2a73af1d4206a2f1e74f4fb88c" method="POST" id="contact">
             <input placeholder="Вашето име" type="text" name="name" required />
             <input placeholder="Вашият имейл адрес" type="email" name="email" required />
             <textarea placeholder="Вашето съобщение" name="message" required></textarea>
-            <button type="submit">Send</button>
+            <button type="submit">Изпрати</button>
         </ContactForm> 
         <TopFooter>
           <Logo>Агро Торове 77</Logo>
